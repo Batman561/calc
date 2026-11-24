@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="آموزش خط به خط کد یک ماشین‌حساب مهندسی ترمینالی با پایتون، به زبان ساده.">
-<title>ماشین‌حساب مهندسی با پایتون (بدون کامنت) — آموزش خط به خط</title>
+<title>ماشین‌حساب مهندسی با پایتون — آموزش خط به خط</title>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <style>
 :root{
@@ -75,8 +75,8 @@ footer{margin-top:5em;padding-top:1.2em;border-top:1px solid var(--line);color:v
 <main>
 
 <header>
-  <h1>ماشین‌حساب مهندسی با پایتون (بدون کامنت)</h1>
-  <p class="lead">آموزش خط به خطِ کد فایل <code>scientific_calculator_no_comments.py</code>. این همان برنامه است، فقط بدون کامنت‌ها؛ همه‌ی توضیح‌ها در این صفحه آمده‌اند.</p>
+  <h1>ماشین‌حساب مهندسی با پایتون</h1>
+  <p class="lead">آموزش خط به خطِ کد فایل <code>calculator.py</code>.</p>
   <p class="meta">۵۵۶ خط کد · فقط پایتون، بدون کتابخانه‌ی اضافه</p>
 </header>
 
@@ -131,7 +131,7 @@ footer{margin-top:5em;padding-top:1.2em;border-top:1px solid var(--line);color:v
 
   <h3>اجرا</h3>
   <p>پایتون ۳ را از <a href="https://www.python.org/downloads/">python.org</a> نصب کنید، در پوشه‌ی فایل یک ترمینال باز کنید و بنویسید:</p>
-  <pre class="cmd">python scientific_calculator_no_comments.py</pre>
+  <pre class="cmd">python calculator.py</pre>
 
   <h3>چه چیزهایی می‌شود نوشت</h3>
   <table>
@@ -516,7 +516,7 @@ footer{margin-top:5em;padding-top:1.2em;border-top:1px solid var(--line);color:v
 </section>
 <section id="s6"><h2><span class="num">بخش ۶</span>ذخیره‌ی تاریخچه در فایل</h2><p>هر چه در متغیرهاست با بستن برنامه پاک می‌شود. برای اینکه تاریخچه بماند، آن را در یک فایل متنی کنار برنامه می‌نویسیم؛ هر خط یک حساب، مثل <code>sin(30) = 0.5</code>. سه کار داریم: خواندن فایل موقع شروع، اضافه کردن یک خط بعد از هر حساب، و خالی کردن فایل با دکمه‌ی D.</p>
 <div class="item"><pre class="code"><span class="l" id="L453"><a href="#L453">453</a><span class="co">HISTORY_FILE_NAME</span> = <span class="s">"scientific_history.txt"</span></span></pre><div class="exp"><p>اسم فایل تاریخچه را در یک متغیر جدا می‌گذاریم، چون چند جا لازمش داریم (ساختن آدرس فایل و پیام‌ها). اسمش با فایل نسخه‌ی ساده فرق دارد تا اگر هر دو برنامه در یک پوشه باشند، تاریخچه‌هایشان قاطی نشود.</p></div></div>
-<div class="item"><pre class="code"><span class="l" id="L454"><a href="#L454">454</a><span class="co">FOLDER</span> = os.path.<span class="ca">dirname</span>(os.path.<span class="ca">abspath</span>(<span class="b">__file__</span>))</span></pre><div class="exp"><p><code>__file__</code> یک متغیر خودکار پایتون است که آدرس همین فایل <code>scientific_calculator.py</code> را نگه می‌دارد. <code>os.path.abspath()</code> آن را به آدرس <strong>کامل</strong> تبدیل می‌کند (مثل <code>C:\Users\...\scientific_calculator.py</code>) و <code>os.path.dirname()</code> اسم فایل را از آخرش حذف می‌کند تا فقط <strong>پوشه</strong> بماند. پس <code>FOLDER</code> می‌شود پوشه‌ای که برنامه داخلش است.</p></div></div>
+<div class="item"><pre class="code"><span class="l" id="L454"><a href="#L454">454</a><span class="co">FOLDER</span> = os.path.<span class="ca">dirname</span>(os.path.<span class="ca">abspath</span>(<span class="b">__file__</span>))</span></pre><div class="exp"><p><code>__file__</code> یک متغیر خودکار پایتون است که آدرس همین فایل <code>calculator.py</code> را نگه می‌دارد. <code>os.path.abspath()</code> آن را به آدرس <strong>کامل</strong> تبدیل می‌کند (مثل <code>C:\Users\...\calculator.py</code>) و <code>os.path.dirname()</code> اسم فایل را از آخرش حذف می‌کند تا فقط <strong>پوشه</strong> بماند. پس <code>FOLDER</code> می‌شود پوشه‌ای که برنامه داخلش است.</p></div></div>
 <div class="item"><pre class="code"><span class="l" id="L455"><a href="#L455">455</a><span class="co">HISTORY_FILE</span> = os.path.<span class="ca">join</span>(<span class="co">FOLDER</span>, <span class="co">HISTORY_FILE_NAME</span>)</span></pre><div class="exp"><p><code>os.path.join()</code> اسم پوشه و اسم فایل را با علامت درستِ سیستم‌عامل (در ویندوز <code>\</code> و در لینوکس و مک <code>/</code>) به هم وصل می‌کند. نتیجه، آدرس کامل فایل تاریخچه است.</p><p>چرا این‌قدر دقیق؟ اگر فقط اسم فایل را می‌دادیم، پایتون فایل را در پوشه‌ای می‌ساخت که ترمینال الان در آن است؛ و اگر برنامه را از پوشه‌ی دیگری اجرا می‌کردید، تاریخچه پیدا نمی‌شد. این‌طوری فایل همیشه کنار خود برنامه است.</p></div></div>
 <div class="item"><pre class="code"><span class="l" id="L458"><a href="#L458">458</a><span class="k">def</span> <span class="f">load_history</span>():</span></pre><div class="exp"><p>این تابع موقع شروع برنامه، حساب‌های دفعه‌های قبل را از فایل می‌خواند و به شکل همان لیستی که <code>show_history</code> می‌شناسد برمی‌گرداند: لیستی از تاپل‌های (عبارت، جواب).</p></div></div>
 <div class="item"><pre class="code"><span class="l" id="L459"><a href="#L459">459</a>    history = []</span></pre><div class="exp"><p>یک لیست خالی که قرار است پر شود.</p></div></div>
@@ -601,12 +601,12 @@ footer{margin-top:5em;padding-top:1.2em;border-top:1px solid var(--line);color:v
 <div class="item"><pre class="code"><span class="l" id="L549"><a href="#L549">549</a>            <span class="k">except</span> <span class="b">ValueError</span> <span class="k">as</span> error:</span></pre><div class="exp"><p>اگر یکی از خطاهای <code>ValueError</code> که خودمان در بخش ۲ تا ۴ با <code>raise</code> پرتاب کرده بودیم رسید، <code>as error</code> آن خطا را در متغیری به اسم <code>error</code> می‌گذارد...</p></div></div>
 <div class="item"><pre class="code"><span class="l" id="L550"><a href="#L550">550</a>                <span class="ca">show_error</span>(<span class="b">str</span>(error))</span></pre><div class="exp"><p>...و <code>str(error)</code> پیام داخلش را به شکل متن بیرون می‌آورد (مثلاً <code>A ')' is missing</code>) تا نشانش بدهیم. بعد از هر کدام از این‌ها، حلقه دوباره از اول شروع می‌شود و منتظر ورودی بعدی می‌ماند.</p></div></div>
 <div class="item"><pre class="code"><span class="l" id="L552"><a href="#L552">552</a>    <span class="b">print</span>(<span class="s">f"<span class="esc">\n</span>  <span class="in">{PINK}</span>Goodbye!<span class="in">{RESET}</span><span class="esc">\n</span>"</span>)</span></pre><div class="exp"><p>این خط بعد از حلقه است (تورفتگی‌اش کمتر است)، پس فقط وقتی اجرا می‌شود که با <code>break</code> از حلقه بیرون آمده باشیم. <code>\n</code> یک کاراکتر خاص به معنی «خط جدید» است. یک خداحافظی صورتی، و برنامه تمام می‌شود.</p></div></div>
-<div class="item"><pre class="code"><span class="l" id="L555"><a href="#L555">555</a><span class="k">if</span> __name__ == <span class="s">"__main__"</span>:</span></pre><div class="exp"><p>این خط معروف کمی جادویی به نظر می‌رسد! پایتون به هر فایل یک اسم مخفی به نام <code>__name__</code> می‌دهد. اگر فایل را <strong>مستقیم</strong> اجرا کنیم (<code>python scientific_calculator.py</code>)، این اسم برابر <code>"__main__"</code> می‌شود. ولی اگر فایل دیگری این فایل را <code>import</code> کند (مثلاً فقط برای استفاده از تابع <code>calculate</code>)، اسمش فرق می‌کند. پس معنی خط: «فقط اگر مستقیم اجرا شده‌ام...».</p></div></div>
+<div class="item"><pre class="code"><span class="l" id="L555"><a href="#L555">555</a><span class="k">if</span> __name__ == <span class="s">"__main__"</span>:</span></pre><div class="exp"><p>این خط معروف کمی جادویی به نظر می‌رسد! پایتون به هر فایل یک اسم مخفی به نام <code>__name__</code> می‌دهد. اگر فایل را <strong>مستقیم</strong> اجرا کنیم (<code>python calculator.py</code>)، این اسم برابر <code>"__main__"</code> می‌شود. ولی اگر فایل دیگری این فایل را <code>import</code> کند (مثلاً فقط برای استفاده از تابع <code>calculate</code>)، اسمش فرق می‌کند. پس معنی خط: «فقط اگر مستقیم اجرا شده‌ام...».</p></div></div>
 <div class="item"><pre class="code"><span class="l" id="L556"><a href="#L556">556</a>    <span class="ca">main</span>()</span></pre><div class="exp"><p>...تابع اصلی را صدا بزن و برنامه را شروع کن! ✨ تا این‌جا فقط تابع‌ها را <strong>تعریف</strong> کرده بودیم (مثل نوشتن دستور پخت)؛ این خط اولین جایی است که واقعاً چیزی <strong>اجرا</strong> می‌شود (شروع آشپزی!).</p></div></div>
 </section>
 
 <footer>
-  ساخته‌شده برای یادگیری · کد کامل در فایل <code>scientific_calculator_no_comments.py</code>
+  ساخته‌شده برای یادگیری · کد کامل در فایل <code>calculator.py</code>
 </footer>
 
 </main>
